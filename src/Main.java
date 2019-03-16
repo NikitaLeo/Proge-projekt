@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
+// comment
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Info");
