@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-// Tere, Getter
+// Tere sullegi
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Info");
