@@ -49,4 +49,24 @@ public class Tehe {
         }
         return true;
     }
+
+    public boolean parempoolneDistributiivsus(Tehe teineTehe){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                for (int k = 0; k < N; k++) {
+                    if ( get(teineTehe.get(i,j), k) != teineTehe.get(get(i,k),get(j,k)) ) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean onDistributiivne(Tehe tehe, Tehe teineTehe){
+        if (tehe.parempoolneDistributiivsus(teineTehe) & tehe.vasakpoolneDistributiivsus(teineTehe)){
+            return true;
+        }
+        return false;
+    }
 }
