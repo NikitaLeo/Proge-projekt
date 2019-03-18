@@ -63,10 +63,7 @@ public class Tehe {
         return true;
     }
 
-    public boolean onDistributiivne(Tehe tehe, Tehe teineTehe){
-        if (tehe.parempoolneDistributiivsus(teineTehe) & tehe.vasakpoolneDistributiivsus(teineTehe)){
-            return true;
-        }
-        return false;
+    public boolean onDistributiivne(Tehe teineTehe){
+        return parempoolneDistributiivsus(teineTehe) & vasakpoolneDistributiivsus(teineTehe);
     }
 }

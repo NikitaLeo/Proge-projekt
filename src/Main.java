@@ -2,14 +2,14 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-// comment2
+// Tere, Getter
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Info");
 
         boolean jätka = true;
         while (jätka == true) {
-
+            int a = 1;
             //küsin kasutajalt tehte faili
             String tehe = JOptionPane.showInputDialog(null,
                     "Sisesta tehte faili nimi", "Fail", JOptionPane.QUESTION_MESSAGE);
@@ -40,7 +40,7 @@ public class Main {
                 List<List<Integer>> tabel2 = Main.failistLugemine(teheTeine);
                 Tehe tehe2 = new Tehe(tabel2);
 
-                System.out.println("Kas kehtib distributiivsus: " + tehe1.onDistributiivne(tehe1, tehe2));
+                System.out.println("Kas kehtib distributiivsus: " + tehe1.onDistributiivne(tehe2));
             }
 
             else {
