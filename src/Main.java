@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
+//comment
 // Dialoogid nüüd kõik hüpikaknas. Veel üks mure on sellega, et kas peaks äkki tegema nii,
 //et kui ta vastab, kas tehe on nt kommutatiivne, siis ta  ei ütle true või false vaid
 //jah või ei. Mis sa arvad?
@@ -11,7 +12,7 @@ public class Main {
                 "tehte assotsiatiivsust, kommutatiivsust ja distributiivsust. Alustada programmi tööd?");
 
         boolean jätka = true;
-        while (jätka == true) {
+        while (jätka) {
             int a = 1;
 
             //küsin kasutajalt tehte faili
