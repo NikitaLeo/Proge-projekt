@@ -2,36 +2,41 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-// Tere sullegi
+// Dialoogid nüüd kõik hüpikaknas. Veel üks mure on sellega, et kas peaks äkki tegema nii,
+//et kui ta vastab, kas tehe on nt kommutatiivne, siis ta  ei ütle true või false vaid
+//jah või ei. Mis sa arvad?
 public class Main {
     public static void main(String[] args) throws Exception {
-        System.out.println("Info");
+        JOptionPane.showMessageDialog(null, "Tere tulemast! See programm kontrollib etteantud " +
+                "tehte assotsiatiivsust, kommutatiivsust ja distributiivsust. Alustada programmi tööd?");
 
         boolean jätka = true;
         while (jätka == true) {
             int a = 1;
+
             //küsin kasutajalt tehte faili
             String tehe = JOptionPane.showInputDialog(null,
                     "Sisesta tehte faili nimi", "Fail", JOptionPane.QUESTION_MESSAGE);
 
-            //küsib kasutajalt tehte tüüpi, pmst saab seda ka ilma rippmenüüta aga nii
-            //vist parem
+            //küsib kasutajalt tehte tüüpi
             String[] tehted = {"kommutatiivsus", "assotsiatiivsus", "distributiivsus"};
             String sisestatakse = (String) JOptionPane.showInputDialog(null,
                     "Vali tehte tüüp", "Tehe", JOptionPane.QUESTION_MESSAGE,
                     null, tehted, tehted[0]);
 
-            //loeb tehte tüübi failist listi
+            //loeb tehte failist listi
             List<List<Integer>> tabel1 = Main.failistLugemine(tehe);
             Tehe tehe1 = new Tehe(tabel1);
 
-            //vastavalt vastatud tehte tüübile teostatakse tehe ja väljastatakse tulemus
+            //vastavalt vastatud tehte tüübile teostatakse kontroll ja väljastatakse tulemus
             if (sisestatakse.equals("kommutatiivsus")){
-                System.out.println("Kas tehe on kommutatiivne: " + tehe1.onKommutatiivne());
+                JOptionPane.showMessageDialog(null,
+                        "Kas tehe on kommutatiivne: "+ tehe1.onKommutatiivne());
             }
 
             else if (sisestatakse.equals("assotsiatiivsus")){
-                System.out.println("Kas tehe on assotsiatiivne: " + tehe1.onAssotsiatiivne());
+                JOptionPane.showMessageDialog(null,
+                        "Kas tehe on assotsiatiivne: " + tehe1.onAssotsiatiivne());
             }
 
             else if (sisestatakse.equals("distributiivsus")){
@@ -40,11 +45,8 @@ public class Main {
                 List<List<Integer>> tabel2 = Main.failistLugemine(teheTeine);
                 Tehe tehe2 = new Tehe(tabel2);
 
-                System.out.println("Kas kehtib distributiivsus: " + tehe1.onDistributiivne(tehe2));
-            }
-
-            else {
-                System.out.println("Sellist tehet meil ei ole.");
+                JOptionPane.showMessageDialog(null,
+                        "Kas kehtib distributiivsus: " + tehe1.onDistributiivne(tehe2));
             }
 
             //küsib kasutajalt, kas jätkata programmi tööd või lõpetada
