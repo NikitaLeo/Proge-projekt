@@ -2,42 +2,37 @@ import java.util.*;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-//comment
-// Dialoogid nüüd kõik hüpikaknas. Veel üks mure on sellega, et kas peaks äkki tegema nii,
-//et kui ta vastab, kas tehe on nt kommutatiivne, siis ta  ei ütle true või false vaid
-//jah või ei. Mis sa arvad?
+
 public class Main {
     public static void main(String[] args) throws Exception {
-        JOptionPane.showMessageDialog(null, "Tere tulemast! See programm kontrollib etteantud " +
+        JOptionPane.showMessageDialog(null, "Tere tulemast! See programm kontrollib etteantud" +
                 "tehte assotsiatiivsust, kommutatiivsust ja distributiivsust. Alustada programmi tööd?");
 
         boolean jätka = true;
         while (jätka) {
-            int a = 1;
-
-            //küsin kasutajalt tehte faili
+            //kasutajalt küsitakse faili nimi
             String tehe = JOptionPane.showInputDialog(null,
                     "Sisesta tehte faili nimi", "Fail", JOptionPane.QUESTION_MESSAGE);
 
-            //küsib kasutajalt tehte tüüpi
-            String[] tehted = {"kommutatiivsus", "assotsiatiivsus", "distributiivsus"};
+            //küsib kasutajalt omadust, mida kontrollida
+            String[] omadused = {"kommutatiivsus", "assotsiatiivsus", "distributiivsus"};
             String sisestatakse = (String) JOptionPane.showInputDialog(null,
-                    "Vali tehte tüüp", "Tehe", JOptionPane.QUESTION_MESSAGE,
-                    null, tehted, tehted[0]);
+                    "Vali omadus, mida kohtrollida", "Omadus", JOptionPane.QUESTION_MESSAGE,
+                    null, omadused, omadused[0]);
 
             //loeb tehte failist listi
             List<List<Integer>> tabel1 = Main.failistLugemine(tehe);
             Tehe tehe1 = new Tehe(tabel1);
 
-            //vastavalt vastatud tehte tüübile teostatakse kontroll ja väljastatakse tulemus
+            //teostatakse kontroll ja väljastatakse tulemus
             if (sisestatakse.equals("kommutatiivsus")){
                 JOptionPane.showMessageDialog(null,
-                        "Kas tehe on kommutatiivne: "+ tehe1.onKommutatiivne());
+                        "Kas tehe on kommutatiivne: "+ vastaja(tehe1.onKommutatiivne()));
             }
 
             else if (sisestatakse.equals("assotsiatiivsus")){
                 JOptionPane.showMessageDialog(null,
-                        "Kas tehe on assotsiatiivne: " + tehe1.onAssotsiatiivne());
+                        "Kas tehe on assotsiatiivne: " + vastaja(tehe1.onAssotsiatiivne()));
             }
 
             else if (sisestatakse.equals("distributiivsus")){
@@ -47,7 +42,7 @@ public class Main {
                 Tehe tehe2 = new Tehe(tabel2);
 
                 JOptionPane.showMessageDialog(null,
-                        "Kas kehtib distributiivsus: " + tehe1.onDistributiivne(tehe2));
+                        "Kas kehtib distributiivsus: " + vastaja(tehe1.onDistributiivne(tehe2)));
             }
 
             //küsib kasutajalt, kas jätkata programmi tööd või lõpetada
@@ -78,5 +73,10 @@ public class Main {
             }
         }
         return tabel;
+    }
+
+    public static String vastaja(boolean b) {
+        if(b) return "Jah";
+        return "Ei";
     }
 }
