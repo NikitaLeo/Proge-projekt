@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        JOptionPane.showMessageDialog(null, "Tere tulemast! See programm kontrollib etteantud" +
+        JOptionPane.showMessageDialog(null, "Tere tulemast! See programm kontrollib etteantud " +
                 "tehte assotsiatiivsust, kommutatiivsust ja distributiivsust. Alustada programmi tööd?");
 
         boolean jätka = true;
@@ -58,7 +58,7 @@ public class Main {
         }
     }
 
-    public static  List<List<Integer>> failistLugemine(String failiNimi) throws Exception {
+    static  List<List<Integer>> failistLugemine(String failiNimi) throws Exception {
         File fail = new File(failiNimi);
         List<List<Integer>> tabel = new ArrayList<>();
         try(Scanner sc = new Scanner(fail, "UTF-8")){
@@ -75,7 +75,7 @@ public class Main {
         return tabel;
     }
 
-    public static String vastaja(boolean b) {
+    private static String vastaja(boolean b) {
         if(b) return "Jah";
         return "Ei";
     }
